@@ -6,6 +6,26 @@ if !exists("g:rspec_runner")
   let g:rspec_runner = "os_x_terminal"
 endif
 
+function! RunCurrentSpecFileAsAlt()
+  let g:rspec_command = g:rspec_alternative_command
+  call RunCurrentSpecFile()
+endfunction
+
+function! RunNearestSpecAsAlt()
+  let g:rspec_command = g:rspec_alternative_command
+  call RunNearestSpec()
+endfunction
+
+function! RunLastSpecAsAlt()
+  let g:rspec_command = g:rspec_alternative_command
+  call RunLastSpec()
+endfunction
+
+function! RunAllSpecsAsAlt()
+  let g:rspec_command = g:rspec_alternative_command
+  call RunAllSpecs()
+endfunction
+
 function! RunAllSpecs()
   let s:last_spec = ""
   call s:RunSpecs(s:last_spec)
